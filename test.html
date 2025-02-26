@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode Toggle - Alleen HTML/CSS</title>
+    <link rel="stylesheet" href="style_1.css">
+
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Dark Mode Demo - Alleen HTML/CSS</h1>
+            <div class="toggle-container">
+                <span class="toggle-label" data-theme="light">Light Mode</span>
+                <span class="toggle-label" data-theme="dark">Dark Mode</span>
+                <label class="theme-switch">
+                    <input type="checkbox" class="theme-checkbox">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </header>
+        
+        <nav>
+            <ul class="nav-container">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item has-dropdown">
+                    <a href="#" class="nav-link">Producten</a>
+                    <div class="dropdown">
+                        <ul class="dropdown-list">
+                            <li class="dropdown-item"><a href="#">Nieuw</a></li>
+                            <li class="dropdown-item"><a href="#">Bestsellers</a></li>
+                            <li class="dropdown-item"><a href="#">Aanbiedingen</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item has-dropdown">
+                    <a href="#" class="nav-link">Diensten</a>
+                    <div class="dropdown">
+                        <ul class="dropdown-list">
+                            <li class="dropdown-item"><a href="#">Consultancy</a></li>
+                            <li class="dropdown-item"><a href="#">Ontwikkeling</a></li>
+                            <li class="dropdown-item"><a href="#">Support</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item has-dropdown">
+                    <a href="#" class="nav-link">Over Ons</a>
+                    <div class="dropdown">
+                        <ul class="dropdown-list">
+                            <li class="dropdown-item"><a href="#">Ons team</a></li>
+                            <li class="dropdown-item"><a href="#">Geschiedenis</a></li>
+                            <li class="dropdown-item"><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        
+        <div class="content">
+            <div class="card">
+                <h2>Pure CSS Dark Mode</h2>
+                <p>Deze website gebruikt alleen HTML en CSS om een dark mode functionaliteit te implementeren. Dit werkt zonder JavaScript door gebruik te maken van de :has() CSS selector.</p>
+            </div>
+            <div class="card">
+                <h2>Hoe het werkt</h2>
+                <p>De schakelaar is een checkbox input. Met de CSS :has() selector kunnen we de hele webpagina laten reageren op de status van deze checkbox, zonder JavaScript nodig te hebben.</p>
+            </div>
+            <div class="card">
+                <h2>Voordelen</h2>
+                <p>Als JavaScript is uitgeschakeld in de browser, blijft deze functionaliteit gewoon werken! Dit verbetert de toegankelijkheid en gebruikerservaring.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
