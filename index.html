@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erfbelasting Aangifte 2023 | Schoolproject</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- School project warning banner -->
+    <div class="warning-banner">
+        <p><strong>Let op:</strong> Dit is een schoolproject en geen officieel belastingformulier van de Belastingdienst.</p>
+    </div>
+
+    <header>
+        <div class="container">
+            <h1>Aangifte 2023 - Erfbelasting</h1>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="form-introduction">
+                <h2>Erfbelasting aangifte invullen</h2>
+                <p>Met dit formulier doet u aangifte erfbelasting voor een overlijden in 2023.</p>
+            </div>
+
+            <form id="erfbelasting-form">
+                <!-- Section 1: Gegevens van de overledene -->
+                <section class="form-section">
+                    <h2>1. Gegevens van de overledene</h2>
+                    <p>Vul hier de gegevens in van de persoon die is overleden.</p>
+                    
+                    <div class="form-group">
+                        <label for="overledene-voorletters">Voorletter(s) *</label>
+                        <input type="text" id="overledene-voorletters" name="overledene-voorletters" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="overledene-tussenvoegsel">Tussenvoegsel</label>
+                        <input type="text" id="overledene-tussenvoegsel" name="overledene-tussenvoegsel">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="overledene-achternaam">Achternaam *</label>
+                        <input type="text" id="overledene-achternaam" name="overledene-achternaam" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="overledene-bsn">Burgerservicenummer *</label>
+                        <input type="text" id="overledene-bsn" name="overledene-bsn" required>
+                        <span class="help-text">9 cijfers, zonder spaties of punten</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="overledene-overlijdensdatum">Overlijdensdatum *</label>
+                        <input type="date" id="overledene-overlijdensdatum" name="overledene-overlijdensdatum" required>
+                    </div>
+
+                    <div class="form-group">
+                        <fieldset>
+                            <legend>Burgerlijke staat *</legend>
+                            <div>
+                                <input type="radio" id="overledene-partner-ja" name="overledene-partner" value="ja" required>
+                                <label for="overledene-partner-ja">Getrouwd of geregistreerd partner</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="overledene-partner-nee" name="overledene-partner" value="nee" required>
+                                <label for="overledene-partner-nee">Ongehuwd of geen geregistreerd partner</label>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <div class="navigation-buttons">
+                        <button type="button" class="btn-next">Volgende</button>
+                    </div>
+                </section>
+
+                <!-- Section 2: Gegevens gemachtigde -->
+                <section class="form-section">
+                    <h2>2. Gegevens gemachtigde</h2>
+                    <p>Vul de gegevens van de gemachtigde in. De gemachtigde is degene die namens 1 of meerdere personen en/of instellingen aangifte doet.</p>
+                    
+                    <div class="form-group">
+                        <h3>Identificatiegegevens gemachtigde</h3>
+                        <p class="help-text">Vul één van de drie in: het burgerservicenummer of RSIN van de gemachtigde, het beconnummer van de adviseur of het protocolnummer van de notaris.</p>
+                        
+                        <div class="form-group">
+                            <label for="gemachtigde-bsn">Burgerservicenummer/RSIN gemachtigde</label>
+                            <input type="text" id="gemachtigde-bsn" name="gemachtigde-bsn">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="gemachtigde-becon">Beconnummer adviseur</label>
+                            <input type="text" id="gemachtigde-becon" name="gemachtigde-becon">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="gemachtigde-protocol">Protocolnummer notaris</label>
+                            <input type="text" id="gemachtigde-protocol" name="gemachtigde-protocol">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="gemachtigde-naam">Naam gemachtigde *</label>
+                        <input type="text" id="gemachtigde-naam" name="gemachtigde-naam" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="gemachtigde-instelling">Naam instelling (bijvoorbeeld een notariskantoor)</label>
+                        <input type="text" id="gemachtigde-instelling" name="gemachtigde-instelling">
+                    </div>
+
+                    <div class="form-group">
+                        <h3>Contactgegevens</h3>
+                        
+                        <div class="form-group">
+                            <label for="gemachtigde-telefoon">Telefoonnummer</label>
+                            <input type="tel" id="gemachtigde-telefoon" name="gemachtigde-telefoon">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="gemachtigde-email">E-mailadres</label>
+                            <input type="email" id="gemachtigde-email" name="gemachtigde-email">
+                        </div>
+                    </div>
+
+                    <div class="navigation-buttons">
+                        <button type="button" class="btn-prev">Vorige</button>
+                        <button type="button" class="btn-next">Volgende</button>
+                    </div>
+                </section>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2023 Schoolproject - Erfbelasting Formulier</p>
+        </div>
+    </footer>
+</body>
+</html>
