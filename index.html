@@ -3,68 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Erfbelasting Aangifte 2023 | Schoolproject</title>
+    <title>Erfbelasting Aangifte 2023 | NS Belastingdienst</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/css-only-validation.css">
 </head>
 <body>
+    <!-- Skip link voor toegankelijkheid -->
+    <a href="#main-content" class="skip-link">Direct naar inhoud</a>
+    
     <!-- School project warning banner -->
     <div class="warning-banner">
-        <p><strong>Let op:</strong> Dit is een schoolproject en geen officieel belastingformulier van de Belastingdienst.</p>
+        <p><strong>Let op:</strong> Dit is een schoolproject</p>
     </div>
 
     <header>
         <div class="container">
-            <h1>Aangifte 2023 - Erfbelasting</h1>
+            <div class="header-content">
+                <h1>Aangifte 2023 - Erfbelasting</h1>
+            </div>
         </div>
     </header>
 
-    <main>
+    <main id="main-content">
         <div class="container">
             <div class="form-introduction">
                 <h2>Erfbelasting aangifte invullen</h2>
-                <p>Met dit formulier doet u aangifte erfbelasting voor een overlijden in 2023.</p>
+                <p>Met dit formulier doet u aangifte erfbelasting voor een overlijden in 2023. Vul het formulier zorgvuldig in.</p>
+            </div>
+
+            <!-- Progress indicator -->
+            <div class="progress-indicator">
+                <div class="progress-step active">
+                    <div class="step-number">1</div>
+                    <div class="step-label">Gegevens overledene</div>
+                </div>
+                <div class="progress-step">
+                    <div class="step-number">2</div>
+                    <div class="step-label">Gegevens gemachtigde</div>
+                </div>
             </div>
 
             <form id="erfbelasting-form">
+                <p class="required-fields-legend"><span class="required-indicator">*</span> Verplicht veld</p>
+                
                 <!-- Section 1: Gegevens van de overledene -->
-                <section class="form-section">
+                <section class="form-section active" id="section-overledene">
                     <h2>1. Gegevens van de overledene</h2>
                     <p>Vul hier de gegevens in van de persoon die is overleden.</p>
                     
                     <div class="form-group">
-                        <label for="overledene-voorletters">Voorletter(s) *</label>
-                        <input type="text" id="overledene-voorletters" name="overledene-voorletters" required>
+                        <label for="overledene-voorletters">Voorletter(s) <span class="required-indicator">*</span></label>
+                        <input type="text" id="overledene-voorletters" name="overledene-voorletters" required 
+                               pattern="^[A-Z](\.[A-Z])*\.?$" placeholder=" " 
+                               title="Vul geldige voorletters in (bijv. J. of J.P.)">
+                        <span class="error-message">Vul geldige voorletters in (bijv. J. of J.P.)</span>
+                        <span class="success-message">✓ Correct ingevuld</span>
                     </div>
 
                     <div class="form-group">
                         <label for="overledene-tussenvoegsel">Tussenvoegsel</label>
-                        <input type="text" id="overledene-tussenvoegsel" name="overledene-tussenvoegsel">
+                        <input type="text" id="overledene-tussenvoegsel" name="overledene-tussenvoegsel" 
+                               pattern="^[a-z\s]+$" placeholder=" " 
+                               title="Vul een geldig tussenvoegsel in (bijv. van, van der)">
+                        <span class="error-message">Vul een geldig tussenvoegsel in (bijv. van, van der)</span>
+                        <span class="success-message">✓ Correct ingevuld</span>
                     </div>
 
                     <div class="form-group">
-                        <label for="overledene-achternaam">Achternaam *</label>
-                        <input type="text" id="overledene-achternaam" name="overledene-achternaam" required>
+                        <label for="overledene-achternaam">Achternaam <span class="required-indicator">*</span></label>
+                        <input type="text" id="overledene-achternaam" name="overledene-achternaam" required 
+                               pattern="^[A-Za-zÀ-ÿ\s\-']{2,}$" placeholder=" " 
+                               title="Vul een geldige achternaam in (alleen letters, spaties, koppeltekens en apostrofen)">
+                        <span class="error-message">Vul een geldige achternaam in (alleen letters, spaties, koppeltekens en apostrofen)</span>
+                        <span class="success-message">✓ Correct ingevuld</span>
                     </div>
 
                     <div class="form-group">
-                        <label for="overledene-bsn">Burgerservicenummer *</label>
-                        <input type="text" id="overledene-bsn" name="overledene-bsn" required>
+                        <label for="overledene-bsn">Burgerservicenummer <span class="required-indicator">*</span></label>
+                        <input type="text" id="overledene-bsn" name="overledene-bsn" required 
+                               pattern="^\d{9}$" placeholder=" " 
+                               title="Vul een geldig BSN in (9 cijfers, zonder spaties of punten)">
+                        <span class="error-message">Vul een geldig BSN in (9 cijfers, zonder spaties of punten)</span>
+                        <span class="success-message">✓ Correct ingevuld</span>
                         <span class="help-text">9 cijfers, zonder spaties of punten</span>
                     </div>
 
                     <div class="form-group">
-                        <label for="overledene-overlijdensdatum">Overlijdensdatum *</label>
-                        <input type="date" id="overledene-overlijdensdatum" name="overledene-overlijdensdatum" required>
+                        <label for="overledene-overlijdensdatum">Overlijdensdatum <span class="required-indicator">*</span></label>
+                        <input type="date" id="overledene-overlijdensdatum" name="overledene-overlijdensdatum" required 
+                               min="2023-01-01" max="2023-12-31" placeholder=" "
+                               title="De overlijdensdatum moet in 2023 vallen">
+                        <span class="error-message">De overlijdensdatum moet in 2023 vallen</span>
+                        <span class="success-message">✓ Correct ingevuld</span>
                     </div>
 
                     <div class="form-group">
                         <fieldset>
-                            <legend>Burgerlijke staat *</legend>
-                            <div>
+                            <legend>Burgerlijke staat <span class="required-indicator">*</span></legend>
+                            <div class="radio-option">
                                 <input type="radio" id="overledene-partner-ja" name="overledene-partner" value="ja" required>
                                 <label for="overledene-partner-ja">Getrouwd of geregistreerd partner</label>
                             </div>
-                            <div>
+                            <div class="radio-option">
                                 <input type="radio" id="overledene-partner-nee" name="overledene-partner" value="nee" required>
                                 <label for="overledene-partner-nee">Ongehuwd of geen geregistreerd partner</label>
                             </div>
@@ -77,7 +117,7 @@
                 </section>
 
                 <!-- Section 2: Gegevens gemachtigde -->
-                <section class="form-section">
+                <section class="form-section" id="section-gemachtigde">
                     <h2>2. Gegevens gemachtigde</h2>
                     <p>Vul de gegevens van de gemachtigde in. De gemachtigde is degene die namens 1 of meerdere personen en/of instellingen aangifte doet.</p>
                     
@@ -87,28 +127,48 @@
                         
                         <div class="form-group">
                             <label for="gemachtigde-bsn">Burgerservicenummer/RSIN gemachtigde</label>
-                            <input type="text" id="gemachtigde-bsn" name="gemachtigde-bsn">
+                            <input type="text" id="gemachtigde-bsn" name="gemachtigde-bsn" 
+                                   pattern="^\d{9}$" placeholder=" " 
+                                   title="Vul een geldig BSN/RSIN in (9 cijfers, zonder spaties of punten)">
+                            <span class="error-message">Vul een geldig BSN/RSIN in (9 cijfers, zonder spaties of punten)</span>
+                            <span class="success-message">✓ Correct ingevuld</span>
                         </div>
                         
                         <div class="form-group">
                             <label for="gemachtigde-becon">Beconnummer adviseur</label>
-                            <input type="text" id="gemachtigde-becon" name="gemachtigde-becon">
+                            <input type="text" id="gemachtigde-becon" name="gemachtigde-becon" 
+                                   pattern="^\d{6}$" placeholder=" " 
+                                   title="Vul een geldig Beconnummer in (6 cijfers)">
+                            <span class="error-message">Vul een geldig Beconnummer in (6 cijfers)</span>
+                            <span class="success-message">✓ Correct ingevuld</span>
                         </div>
                         
                         <div class="form-group">
                             <label for="gemachtigde-protocol">Protocolnummer notaris</label>
-                            <input type="text" id="gemachtigde-protocol" name="gemachtigde-protocol">
+                            <input type="text" id="gemachtigde-protocol" name="gemachtigde-protocol" 
+                                   placeholder=" " 
+                                   title="Vul een geldig protocolnummer in">
+                            <span class="error-message">Vul een geldig protocolnummer in</span>
+                            <span class="success-message">✓ Correct ingevuld</span>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="gemachtigde-naam">Naam gemachtigde *</label>
-                        <input type="text" id="gemachtigde-naam" name="gemachtigde-naam" required>
+                        <label for="gemachtigde-naam">Naam gemachtigde <span class="required-indicator">*</span></label>
+                        <input type="text" id="gemachtigde-naam" name="gemachtigde-naam" required 
+                               pattern="^[A-Za-zÀ-ÿ\s\-']{2,}$" placeholder=" " 
+                               title="Vul een geldige naam in (alleen letters, spaties, koppeltekens en apostrofen)">
+                        <span class="error-message">Vul een geldige naam in (alleen letters, spaties, koppeltekens en apostrofen)</span>
+                        <span class="success-message">✓ Correct ingevuld</span>
                     </div>
 
                     <div class="form-group">
                         <label for="gemachtigde-instelling">Naam instelling (bijvoorbeeld een notariskantoor)</label>
-                        <input type="text" id="gemachtigde-instelling" name="gemachtigde-instelling">
+                        <input type="text" id="gemachtigde-instelling" name="gemachtigde-instelling" 
+                               placeholder=" " 
+                               title="Vul de naam van de instelling in">
+                        <span class="error-message">Vul een geldige instellingsnaam in</span>
+                        <span class="success-message">✓ Correct ingevuld</span>
                     </div>
 
                     <div class="form-group">
@@ -116,12 +176,20 @@
                         
                         <div class="form-group">
                             <label for="gemachtigde-telefoon">Telefoonnummer</label>
-                            <input type="tel" id="gemachtigde-telefoon" name="gemachtigde-telefoon">
+                            <input type="tel" id="gemachtigde-telefoon" name="gemachtigde-telefoon" 
+                                   pattern="^(0|\+31|0031)[1-9][0-9]{8}$" placeholder=" " 
+                                   title="Vul een geldig Nederlands telefoonnummer in">
+                            <span class="error-message">Vul een geldig Nederlands telefoonnummer in</span>
+                            <span class="success-message">✓ Correct ingevuld</span>
                         </div>
                         
                         <div class="form-group">
                             <label for="gemachtigde-email">E-mailadres</label>
-                            <input type="email" id="gemachtigde-email" name="gemachtigde-email">
+                            <input type="email" id="gemachtigde-email" name="gemachtigde-email" 
+                                   placeholder=" " 
+                                   title="Vul een geldig e-mailadres in">
+                            <span class="error-message">Vul een geldig e-mailadres in</span>
+                            <span class="success-message">✓ Correct ingevuld</span>
                         </div>
                     </div>
 
@@ -136,8 +204,12 @@
 
     <footer>
         <div class="container">
-            <p>© 2023 Schoolproject - Erfbelasting Formulier</p>
+            <div class="footer-content">
+                <p>© 2023 Schoolproject - Erfbelasting Formulier</p>
+            </div>
         </div>
     </footer>
+
+    <script src="js/script.js"></script>
 </body>
 </html>

@@ -1,0 +1,122 @@
+/* CSS-only validatie stijlen */
+
+/* Toegepaste stijlen voor alle invulvelden */
+input:not([type="radio"]) {
+    transition: all 0.3s ease;
+}
+
+/* Stijlen voor geldige invoer */
+input:not([type="radio"]):valid:not(:placeholder-shown) {
+    border: 2px solid var(--ns-success);
+    background-color: rgba(57, 135, 12, 0.05);
+}
+
+/* Stijlen voor ongeldige invoer, alleen als het veld was aangeraakt */
+input:not([type="radio"]):invalid:not(:placeholder-shown):not(:focus) {
+    border: 2px solid var(--ns-error);
+    background-color: rgba(213, 43, 30, 0.05);
+}
+
+/* Stijlen voor focus op velden met fout */
+input:not([type="radio"]):invalid:focus {
+    outline: 3px solid var(--ns-light-blue);
+    border-color: var(--ns-light-blue);
+    box-shadow: 0 0 0 1px var(--ns-light-blue);
+}
+
+/* Aangepaste foutmeldingen met CSS */
+.form-group {
+    position: relative;
+    padding-bottom: 25px; /* Ruimte maken voor feedback berichten */
+}
+
+/* Verberg beide berichten standaard */
+.error-message,
+.success-message {
+    display: none;
+    position: absolute;
+    font-size: 14px;
+    bottom: 5px;
+    left: 0;
+    animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Toon alleen het foutbericht bij ongeldige invoer */
+input:not([type="radio"]):invalid:not(:placeholder-shown):not(:focus) + .error-message {
+    display: block;
+}
+
+/* Toon alleen het succesbericht bij geldige invoer */
+input:not([type="radio"]):valid:not(:placeholder-shown) + .error-message + .success-message {
+    display: block;
+}
+
+.error-message {
+    color: var(--ns-error);
+}
+
+.success-message {
+    color: var(--ns-success);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Verplichte velden markering */
+label .required-indicator {
+    font-size: 1.2em;
+    vertical-align: middle;
+    margin-left: 3px;
+}
+
+.required-fields-legend {
+    margin-bottom: 20px;
+    color: var(--ns-gray);
+    font-size: 14px;
+}
+
+/* Radio button validatie */
+input[type="radio"]:checked + label {
+    font-weight: bold;
+    color: var(--ns-blue);
+}
+
+fieldset:has(input[type="radio"][required]:not(:checked)) {
+    border-color: var(--ns-error);
+}
+
+fieldset:has(input[type="radio"][required]:checked) {
+    border-color: var(--ns-success);
+}
+
+/* Verbeterde radio button styling */
+.radio-option {
+    padding: 10px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.radio-option:hover {
+    background-color: rgba(0, 48, 130, 0.05);
+}
+
+/* Voor toegankelijkheidsverbetering */
+input[type="radio"]:focus + label {
+    outline: 2px solid var(--ns-light-blue);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+/* Help text positionering */
+.help-text {
+    margin-top: 5px;
+    display: block;
+}
